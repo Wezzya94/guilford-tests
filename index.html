@@ -3,33 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тесты Гилфорда</title>
+    <title>Тест: Необычное использование смартфона</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .menu-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 60vh;
-        }
-        .menu-title {
-            margin-bottom: 2rem;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
-    <div class="container menu-container">
-        <h1 class="menu-title">Выберите тест для прохождения:</h1>
-        <div class="grid" style="width: 100%; max-width: 600px;">
-            <a href="smartphone.html" class="btn btn-primary" style="padding: 2rem; font-size: 1.2rem; border-radius: 16px;">
-                Тест 1: Смартфон (2 мин)
-            </a>
-            <a href="headphones.html" class="btn btn-primary" style="padding: 2rem; font-size: 1.2rem; border-radius: 16px; background-color: #10b981; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">
-                Тест 2: Наушники (5 мин)
-            </a>
+    <div class="container">
+        <div style="text-align: right; margin-bottom: 1.5rem;">
+            <a href="headphones.html" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Перейти к тесту 2 (Наушники) →</a>
+        </div>
+
+        <header style="margin-bottom: 2rem;">
+            <span class="badge badge-amber">Тест №1</span>
+            <h1>Необычное использование смартфона</h1>
+        </header>
+
+        <main>
+            <!-- Rules Section -->
+            <div class="card">
+                <div class="card-title-bar">
+                    <h2>Инструкция</h2>
+                </div>
+                <ol style="font-size: 1.1rem; line-height: 1.8; padding-left: 1.25rem;">
+                    <li>Используйте выданный вам <strong>бумажный листочек</strong>.</li>
+                    <li>Напишите на нём ответы списком <strong>под номерами (1, 2, 3...)</strong>.</li>
+                    <li>Придумайте и запишите как можно больше <strong>необычных и оригинальных</strong> способов использования смартфона.</li>
+                    <li><strong style="color: var(--color-standard);">Запрещено писать стандартные функции:</strong> звонить, писать сообщения, играть, снимать фото/видео, использовать приложения, выходить в интернет, использовать как калькулятор или фонарик.</li>
+                    <li>Все идеи должны быть реальными и осуществимыми на практике.</li>
+                    <li>Время выполнения: <strong>2 минуты</strong>.</li>
+                </ol>
+            </div>
+
+            <!-- Example Section -->
+            <div class="card">
+                <div class="card-title-bar">
+                    <h2>Примеры ответов</h2>
+                </div>
+                <div class="example-box">
+                    <div class="example-column">
+                        <span class="badge badge-standard">Стандартные (0-1 балл)</span>
+                        <div class="example-item">🔦 Использовать как фонарик</div>
+                        <div class="example-item">🪞 Смотреться как в зеркало</div>
+                        <div class="example-item">🪵 Подложить под ножку стола</div>
+                        <div class="example-item">🔨 Забивать гвозди / бросаться</div>
+                    </div>
+                    <div class="example-column">
+                        <span class="badge badge-creative">Оригинальные (3-5 баллов)</span>
+                        <div class="example-item">🎨 Палитра для рисования</div>
+                        <div class="example-item">❤️ Датчик пульса (приложить палец к камере)</div>
+                        <div class="example-item">📐 Строительный уровень (ватерпас)</div>
+                        <div class="example-item">📄 Груз для прижатия бумаги (пресс-папье)</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timer Section -->
+            <div class="timer-container" style="margin-top: 2rem;">
+                <span class="badge badge-primary" style="margin-bottom: 0.25rem;">Таймер</span>
+                <div id="timer" class="timer-display">02:00</div>
+                <div class="btn-group">
+                    <button id="start-btn" class="btn btn-primary">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                        Старт
+                    </button>
+                    <button id="pause-btn" class="btn btn-secondary" disabled>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="4" x2="18" y2="20"></line><line x1="6" y1="4" x2="6" y2="20"></line></svg>
+                        Пауза
+                    </button>
+                    <button id="reset-btn" class="btn btn-outline">Сбросить</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Time Up Dialog -->
+    <div id="dialog-overlay" class="dialog-overlay">
+        <div class="dialog">
+            <h3>Время вышло! ⏱️</h3>
+            <p>2 минуты истекли. Пожалуйста, отложите ручки и сдайте ваши листочки.</p>
+            <button id="dialog-close" class="btn btn-primary">ОК</button>
         </div>
     </div>
+
+    <script>
+        const duration = 120; // 2 minutes
+        let timeLeft = duration;
+        let timerId = null;
+        let isRunning = false;
+
+        const timerDisplay = document.getElementById('timer');
+        const startBtn = document.getElementById('start-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const dialogOverlay = document.getElementById('dialog-overlay');
+        const dialogClose = document.getElementById('dialog-close');
+
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function updateTimer() {
+            timerDisplay.textContent = formatTime(timeLeft);
+            
+            if (timeLeft <= 10 && timeLeft > 0) {
+                timerDisplay.classList.add('timer-pulse-warning');
+            } else {
+                timerDisplay.classList.remove('timer-pulse-warning');
+            }
+
+            if (timeLeft === 0) {
+                clearInterval(timerId);
+                isRunning = false;
+                timerDisplay.classList.remove('timer-running');
+                timerDisplay.classList.remove('timer-pulse-warning');
+                startBtn.disabled = true;
+                pauseBtn.disabled = true;
+                showTimeUpDialog();
+            }
+        }
+
+        function startTimer() {
+            if (isRunning) return;
+            isRunning = true;
+            startBtn.disabled = true;
+            pauseBtn.disabled = false;
+            timerDisplay.classList.add('timer-running');
+
+            timerId = setInterval(() => {
+                timeLeft--;
+                updateTimer();
+            }, 1000);
+        }
+
+        function pauseTimer() {
+            if (!isRunning) return;
+            isRunning = false;
+            clearInterval(timerId);
+            startBtn.disabled = false;
+            pauseBtn.disabled = true;
+            timerDisplay.classList.remove('timer-running');
+        }
+
+        function resetTimer() {
+            pauseTimer();
+            timeLeft = duration;
+            updateTimer();
+            startBtn.disabled = false;
+            pauseBtn.disabled = true;
+        }
+
+        function showTimeUpDialog() {
+            dialogOverlay.classList.add('show');
+            try {
+                const context = new (window.AudioContext || window.webkitAudioContext)();
+                const oscillator = context.createOscillator();
+                const gainNode = context.createGain();
+                oscillator.type = 'sine';
+                oscillator.frequency.setValueAtTime(440, context.currentTime);
+                gainNode.gain.setValueAtTime(0.1, context.currentTime);
+                oscillator.connect(gainNode);
+                gainNode.connect(context.destination);
+                oscillator.start();
+                oscillator.stop(context.currentTime + 1.0);
+            } catch (e) {
+                console.log("Audio not supported");
+            }
+        }
+
+        startBtn.addEventListener('click', startTimer);
+        pauseBtn.addEventListener('click', pauseTimer);
+        resetBtn.addEventListener('click', resetTimer);
+        dialogClose.addEventListener('click', () => dialogOverlay.classList.remove('show'));
+    </script>
 </body>
 </html>
