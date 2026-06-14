@@ -3,182 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест Гилфорда: Наушники</title>
+    <title>Правила теста: Наушники</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div style="text-align: left; margin-bottom: 1.5rem;">
-            <a href="index.html" class="btn btn-secondary" style="font-size: 0.9rem; padding: 0.5rem 1rem;">← Перейти к тесту 1 (Смартфон)</a>
+    <div class="container" style="max-width: 700px; margin-top: 3rem;">
+        <div style="text-align: left; margin-bottom: 2rem;">
+            <a href="index.html" class="btn btn-secondary" style="font-size: 0.95rem; padding: 0.6rem 1.2rem;">← Тест №1: Смартфон</a>
         </div>
 
-        <header style="margin-bottom: 2rem;">
-            <span class="badge badge-creative">Тест №2</span>
-            <h1>Необычное использование проводных наушников</h1>
-        </header>
-
-        <main>
-            <!-- Rules Section -->
-            <div class="card">
-                <div class="card-title-bar">
-                    <h2>Что нужно делать?</h2>
-                </div>
-                <ol style="font-size: 1.1rem; line-height: 1.8; padding-left: 1.25rem;">
-                    <li>Вам будут разданы <strong>бумажные листочки</strong>.</li>
-                    <li>Ваша задача — <strong>под номерами (1, 2, 3...)</strong> написать на листочке как можно больше необычных и оригинальных способов использования проводных наушников.</li>
-                    <li><strong style="color: var(--color-standard);">Важное правило:</strong> Исключите стандартные функции наушников (прослушивание музыки/подкастов, разговоры по телефону и подключение к технике для воспроизведения звука).</li>
-                    <li>Идеи должны быть выполнимыми (оригинальными и полезными на практике). Постарайтесь выйти за рамки привычных ассоциаций с проводами!</li>
-                    <li>На выполнение теста даётся ровно <strong>5 минут</strong>. Постарайтесь придумать как можно больше вариантов!</li>
-                </ol>
-            </div>
-
-            <!-- Example Section -->
-            <div class="card">
-                <div class="card-title-bar">
-                    <h2>Примеры для ориентира</h2>
-                </div>
-                <div class="example-box">
-                    <div class="example-column">
-                        <span class="badge badge-standard">Обычные ответы (0-1 б.)</span>
-                        <div class="example-item">🐕 Поводок для хомяка/мелкого животного</div>
-                        <div class="example-item">🎣 Леска для ловли рыбы</div>
-                        <div class="example-item">🥾 Временные шнурки для обуви</div>
-                        <div class="example-item">📏 Верёвка для измерения длины/роста</div>
-                    </div>
-                    <div class="example-column">
-                        <span class="badge badge-creative">Оригинальные ответы (3-5 б.)</span>
-                        <div class="example-item">🩺 Импровизированный стетоскоп</div>
-                        <div class="example-item">📡 Внешняя антенна для радиосигнала</div>
-                        <div class="example-item">⚡ Проводник в простейших электроцепях</div>
-                        <div class="example-item">💍 Дизайнерский браслет / Элемент декора</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Timer Section -->
-            <div class="timer-container" style="margin-top: 2rem;">
-                <span class="badge badge-primary" style="margin-bottom: 0.25rem;">Таймер теста</span>
-                <div id="timer" class="timer-display">05:00</div>
-                <div class="btn-group">
-                    <button id="start-btn" class="btn btn-primary">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        Начать отсчет
-                    </button>
-                    <button id="pause-btn" class="btn btn-secondary" disabled>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="4" x2="18" y2="20"></line><line x1="6" y1="4" x2="6" y2="20"></line></svg>
-                        Пауза
-                    </button>
-                    <button id="reset-btn" class="btn btn-outline">Сбросить</button>
-                </div>
-            </div>
-        </main>
-
-        <footer class="page-footer">
-            <p>© ГБОУ «Школа № 45 имени Л.И. Мильграма»</p>
-        </footer>
-    </div>
-
-    <!-- Time Up Dialog -->
-    <div id="dialog-overlay" class="dialog-overlay">
-        <div class="dialog">
-            <h3>Время вышло! ⏱️</h3>
-            <p>5 минут истекли. Пожалуйста, отложите ручки и сдайте ваши листочки учителю.</p>
-            <button id="dialog-close" class="btn btn-primary">Понятно</button>
-        </div>
-    </div>
-
-    <script>
-        // Timer Logic
-        const duration = 300; // 5 minutes
-        let timeLeft = duration;
-        let timerId = null;
-        let isRunning = false;
-
-        const timerDisplay = document.getElementById('timer');
-        const startBtn = document.getElementById('start-btn');
-        const pauseBtn = document.getElementById('pause-btn');
-        const resetBtn = document.getElementById('reset-btn');
-        const dialogOverlay = document.getElementById('dialog-overlay');
-        const dialogClose = document.getElementById('dialog-close');
-
-        function formatTime(seconds) {
-            const mins = Math.floor(seconds / 60);
-            const secs = seconds % 60;
-            return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-        }
-
-        function updateTimer() {
-            timerDisplay.textContent = formatTime(timeLeft);
+        <main class="card" style="padding: 3rem; border: 2px solid var(--border-color);">
+            <span class="badge badge-creative" style="font-size: 1rem; padding: 0.4rem 1rem;">Тест №2</span>
+            <h1 style="text-align: left; margin-top: 1rem; margin-bottom: 2rem; font-size: 2.2rem;">Правила выполнения теста</h1>
             
-            if (timeLeft <= 10 && timeLeft > 0) {
-                timerDisplay.classList.add('timer-pulse-warning');
-            } else {
-                timerDisplay.classList.remove('timer-pulse-warning');
-            }
-
-            if (timeLeft === 0) {
-                clearInterval(timerId);
-                isRunning = false;
-                timerDisplay.classList.remove('timer-running');
-                timerDisplay.classList.remove('timer-pulse-warning');
-                startBtn.disabled = true;
-                pauseBtn.disabled = true;
-                showTimeUpDialog();
-            }
-        }
-
-        function startTimer() {
-            if (isRunning) return;
-            isRunning = true;
-            startBtn.disabled = true;
-            pauseBtn.disabled = false;
-            timerDisplay.classList.add('timer-running');
-
-            timerId = setInterval(() => {
-                timeLeft--;
-                updateTimer();
-            }, 1000);
-        }
-
-        function pauseTimer() {
-            if (!isRunning) return;
-            isRunning = false;
-            clearInterval(timerId);
-            startBtn.disabled = false;
-            pauseBtn.disabled = true;
-            timerDisplay.classList.remove('timer-running');
-        }
-
-        function resetTimer() {
-            pauseTimer();
-            timeLeft = duration;
-            updateTimer();
-            startBtn.disabled = false;
-            pauseBtn.disabled = true;
-        }
-
-        function showTimeUpDialog() {
-            dialogOverlay.classList.add('show');
-            try {
-                const context = new (window.AudioContext || window.webkitAudioContext)();
-                const oscillator = context.createOscillator();
-                const gainNode = context.createGain();
-                oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(440, context.currentTime);
-                gainNode.gain.setValueAtTime(0.1, context.currentTime);
-                oscillator.connect(gainNode);
-                gainNode.connect(context.destination);
-                oscillator.start();
-                oscillator.stop(context.currentTime + 1.0);
-            } catch (e) {
-                console.log("Audio not supported");
-            }
-        }
-
-        startBtn.addEventListener('click', startTimer);
-        pauseBtn.addEventListener('click', pauseTimer);
-        resetBtn.addEventListener('click', resetTimer);
-        dialogClose.addEventListener('click', () => dialogOverlay.classList.remove('show'));
-    </script>
+            <ol style="font-size: 1.3rem; line-height: 2; padding-left: 1.5rem; color: #334155;">
+                <li style="margin-bottom: 1.2rem;">Возьмите выданный вам <strong>бумажный листочек</strong>.</li>
+                <li style="margin-bottom: 1.2rem;">Напишите ответы списком <strong>под номерами (1, 2, 3...)</strong>.</li>
+                <li style="margin-bottom: 1.2rem;">Придумайте и запишите как можно больше <strong>необычных и оригинальных</strong> способов использования <strong>проводных наушников</strong>.</li>
+                <li style="margin-bottom: 1.2rem;"><strong style="color: var(--color-standard);">Запрещено</strong> писать стандартные функции: прослушивание музыки или подкастов, разговоры по телефону и подключение к технике для воспроизведения звука.</li>
+                <li style="margin-bottom: 1.2rem;">Все предложенные идеи должны быть <strong>реальными и осуществимыми</strong> на практике.</li>
+                <li style="margin-bottom: 1.2rem;">Время на выполнение задания: <strong>5 минут</strong>.</li>
+            </ol>
+        </main>
+    </div>
 </body>
 </html>
