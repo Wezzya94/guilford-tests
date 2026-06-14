@@ -3,54 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тесты дивергентного мышления Дж. Гилфорда</title>
+    <title>Тесты Гилфорда</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .menu-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+        }
+        .menu-title {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <span class="badge badge-primary">Школа № 45 им. Л.И. Мильграма</span>
-            <h1>Тесты дивергентного мышления</h1>
-            <p>Добро пожаловать! Здесь представлены интерактивные раздаточные материалы для прохождения вербальных субтестов Дж. Гилфорда на уроках обществознания.</p>
-        </header>
-
-        <main>
-            <div class="card">
-                <div class="card-title-bar">
-                    <h2>Что такое дивергентное мышление?</h2>
-                </div>
-                <p><strong>Дивергентное мышление</strong> — это способность находить множество различных и нестандартных решений для одной и той же задачи. Оно является основой креативности и творческого потенциала человека.</p>
-                <p>На этих страницах вы пройдёте тесты на необычное использование привычных предметов. Цель — предложить как можно более оригинальные способы применения вещей, выходящие за рамки их повседневного назначения.</p>
-            </div>
-
-            <div class="grid">
-                <div class="card portal-card">
-                    <div>
-                        <span class="badge badge-amber">Тест 1 • 2 минуты</span>
-                        <h2>Необычное использование смартфона</h2>
-                        <p>Попробуйте придумать как можно больше оригинальных и нестандартных способов использования смартфона, исключая его прямые цифровые функции.</p>
-                    </div>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="smartphone.html" class="btn btn-primary" style="width: 100%;">Начать тест 1</a>
-                    </div>
-                </div>
-
-                <div class="card portal-card">
-                    <div>
-                        <span class="badge badge-creative">Тест 2 • 5 минут</span>
-                        <h2>Необычное использование наушников</h2>
-                        <p>Придумайте креативные способы применения обычных проводных наушников. Здесь у вас будет больше времени для проявления инженерной и творческой фантазии.</p>
-                    </div>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="headphones.html" class="btn btn-primary" style="width: 100%;">Начать тест 2</a>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <footer class="page-footer">
-            <p>© 2026 ГБОУ «Школа № 45 имени Л.И. Мильграма». Разработчик: Ф.К. Фёдоров</p>
-        </footer>
+    <div class="container menu-container">
+        <h1 class="menu-title">Выберите тест для прохождения:</h1>
+        <div class="grid" style="width: 100%; max-width: 600px;">
+            <a href="smartphone.html" class="btn btn-primary" style="padding: 2rem; font-size: 1.2rem; border-radius: 16px;">
+                Тест 1: Смартфон (2 мин)
+            </a>
+            <a href="headphones.html" class="btn btn-primary" style="padding: 2rem; font-size: 1.2rem; border-radius: 16px; background-color: #10b981; box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.2);">
+                Тест 2: Наушники (5 мин)
+            </a>
+        </div>
     </div>
 </body>
 </html>

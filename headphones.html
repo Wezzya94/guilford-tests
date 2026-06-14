@@ -3,116 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тест Гилфорда: Необычное использование наушников</title>
+    <title>Тест Гилфорда: Наушники</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-link">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-            Вернуться на главную
+            Назад к выбору теста
         </a>
 
-        <header style="margin-bottom: 1.5rem;">
-            <span class="badge badge-creative">Субтест №2</span>
+        <header style="margin-bottom: 2rem;">
+            <span class="badge badge-creative">Тест №2</span>
             <h1>Необычное использование проводных наушников</h1>
-            <p>Диагностика оригинальности дивергентного мышления</p>
         </header>
 
         <main>
             <!-- Rules Section -->
             <div class="card">
                 <div class="card-title-bar">
-                    <h2>Правила выполнения теста</h2>
+                    <h2>Что нужно делать?</h2>
                 </div>
-                <ol>
-                    <li>Запишите как можно больше <strong>необычных и оригинальных способов</strong> использования проводных наушников.</li>
-                    <li><strong style="color: var(--color-standard);">Исключите стандартные функции:</strong> прослушивание музыки/подкастов, разговоры по телефону, подключение к компьютеру, смартфону или плееру для звука.</li>
-                    <li>Идеи должны быть реально осуществимыми на практике.</li>
-                    <li>На выполнение теста отводится ровно <strong>5 минут</strong>. Постарайтесь выйти за рамки привычных ассоциаций с проводами!</li>
+                <ol style="font-size: 1.1rem; line-height: 1.8;">
+                    <li>Вам будут разданы <strong>бумажные листочки</strong>.</li>
+                    <li>Ваша задача — <strong>под номерами (1, 2, 3...)</strong> написать на листочке как можно больше необычных и оригинальных способов использования проводных наушников.</li>
+                    <li><strong style="color: var(--color-standard);">Важное правило:</strong> Исключите стандартные функции наушников (прослушивание музыки, звуковых дорожек, разговоры по телефону и подключение к технике для воспроизведения звука).</li>
+                    <li>Идеи должны быть выполнимыми (оригинальными и полезными на практике). Постарайтесь выйти за рамки привычных ассоциаций с проводами!</li>
+                    <li>На выполнение теста даётся ровно <strong>5 минут</strong>. Постарайтесь придумать как можно больше вариантов!</li>
                 </ol>
             </div>
 
             <!-- Example Section -->
             <div class="card">
                 <div class="card-title-bar">
-                    <h2>Шкала оценки и примеры</h2>
+                    <h2>Примеры для ориентира</h2>
                 </div>
-                <p>Результаты оцениваются по степени оригинальности и отходу от стандартных бытовых схем:</p>
                 <div class="example-box">
                     <div class="example-column">
-                        <span class="badge badge-standard">Стандартные ответы (0-1 б.)</span>
-                        <div class="example-item">🐕 Поводок для хомяка/мелкого питомца</div>
+                        <span class="badge badge-standard">Обычные ответы (0-1 б.)</span>
+                        <div class="example-item">🐕 Поводок для хомяка/мелкого животного</div>
                         <div class="example-item">🎣 Леска для ловли рыбы</div>
                         <div class="example-item">🥾 Временные шнурки для обуви</div>
-                        <div class="example-item">📏 Мерная лента для измерения роста</div>
+                        <div class="example-item">📏 Верёвка для измерения длины/роста</div>
                     </div>
                     <div class="example-column">
-                        <span class="badge badge-creative">Креативные ответы (3-5 б.)</span>
+                        <span class="badge badge-creative">Оригинальные ответы (3-5 б.)</span>
                         <div class="example-item">🩺 Импровизированный стетоскоп</div>
-                        <div class="example-item">📡 Внешняя антенна для радиосигнала</div>
+                        <div class="example-item">📡 Внешняя антенна для усиления радиосигнала</div>
                         <div class="example-item">⚡ Проводник в простейших электроцепях</div>
-                        <div class="example-item">💍 Дизайнерский браслет/элемент декора</div>
+                        <div class="example-item">💍 Дизайнерский браслет / Элемент декора</div>
                     </div>
                 </div>
             </div>
 
             <!-- Timer Section -->
-            <div class="timer-container">
+            <div class="timer-container" style="margin-top: 2rem;">
                 <span class="badge badge-primary" style="margin-bottom: 0.25rem;">Таймер теста</span>
                 <div id="timer" class="timer-display">05:00</div>
                 <div class="btn-group">
                     <button id="start-btn" class="btn btn-primary">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-                        Запуск
+                        Начать отсчет
                     </button>
                     <button id="pause-btn" class="btn btn-secondary" disabled>
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="4" x2="18" y2="20"></line><line x1="6" y1="4" x2="6" y2="20"></line></svg>
                         Пауза
                     </button>
-                    <button id="reset-btn" class="btn btn-outline">Сброс</button>
-                </div>
-            </div>
-
-            <!-- Answer Pad -->
-            <div class="card">
-                <div class="card-title-bar" style="display: flex; justify-content: space-between; align-items: center; padding-bottom: 0.5rem; margin-bottom: 1rem;">
-                    <h2 style="margin-bottom: 0;">Ваши идеи</h2>
-                    <span id="idea-count" class="badge badge-primary">Идей: 0</span>
-                </div>
-                <div class="notepad-container">
-                    <textarea id="notepad" class="notepad-textarea" placeholder="Напишите вашу первую идею здесь...&#10;Каждую новую идею пишите с новой строки." disabled></textarea>
-                    <div class="notepad-footer">
-                        <span class="char-counter">Символов: <span id="char-num">0</span></span>
-                        <button id="copy-btn" class="btn btn-success">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                            Скопировать ответы
-                        </button>
-                    </div>
+                    <button id="reset-btn" class="btn btn-outline">Сбросить</button>
                 </div>
             </div>
         </main>
 
         <footer class="page-footer">
-            <p>© 2026 ГБОУ «Школа № 45 имени Л.И. Мильграма». Разработчик: Ф.К. Фёдоров</p>
+            <p>© ГБОУ «Школа № 45 имени Л.И. Мильграма»</p>
         </footer>
     </div>
-
-    <!-- Notification Toast -->
-    <div id="toast" class="copied-toast">Ответы скопированы в буфер обмена!</div>
 
     <!-- Time Up Dialog -->
     <div id="dialog-overlay" class="dialog-overlay">
         <div class="dialog">
             <h3>Время вышло! ⏱️</h3>
-            <p>5 минут истекли. Пожалуйста, скопируйте ваши ответы и отправьте их учителю для оценки.</p>
+            <p>5 минут истекли. Пожалуйста, отложите ручки и сдайте ваши листочки учителю.</p>
             <button id="dialog-close" class="btn btn-primary">Понятно</button>
         </div>
     </div>
 
     <script>
         // Timer Logic
-        const duration = 300; // 5 minutes in seconds
+        const duration = 300; // 5 minutes
         let timeLeft = duration;
         let timerId = null;
         let isRunning = false;
@@ -121,11 +99,6 @@
         const startBtn = document.getElementById('start-btn');
         const pauseBtn = document.getElementById('pause-btn');
         const resetBtn = document.getElementById('reset-btn');
-        const notepad = document.getElementById('notepad');
-        const ideaCount = document.getElementById('idea-count');
-        const charNum = document.getElementById('char-num');
-        const copyBtn = document.getElementById('copy-btn');
-        const toast = document.getElementById('toast');
         const dialogOverlay = document.getElementById('dialog-overlay');
         const dialogClose = document.getElementById('dialog-close');
 
@@ -138,7 +111,6 @@
         function updateTimer() {
             timerDisplay.textContent = formatTime(timeLeft);
             
-            // Warning pulse in last 10 seconds
             if (timeLeft <= 10 && timeLeft > 0) {
                 timerDisplay.classList.add('timer-pulse-warning');
             } else {
@@ -150,7 +122,6 @@
                 isRunning = false;
                 timerDisplay.classList.remove('timer-running');
                 timerDisplay.classList.remove('timer-pulse-warning');
-                notepad.disabled = true;
                 startBtn.disabled = true;
                 pauseBtn.disabled = true;
                 showTimeUpDialog();
@@ -160,9 +131,6 @@
         function startTimer() {
             if (isRunning) return;
             isRunning = true;
-            notepad.disabled = false;
-            notepad.focus();
-            
             startBtn.disabled = true;
             pauseBtn.disabled = false;
             timerDisplay.classList.add('timer-running');
@@ -180,82 +148,37 @@
             startBtn.disabled = false;
             pauseBtn.disabled = true;
             timerDisplay.classList.remove('timer-running');
-            notepad.disabled = true;
         }
 
-        // Reset Timer Logic
         function resetTimer() {
             pauseTimer();
             timeLeft = duration;
             updateTimer();
-            notepad.value = '';
-            notepad.disabled = true;
             startBtn.disabled = false;
             pauseBtn.disabled = true;
-            updateCounts();
         }
 
         function showTimeUpDialog() {
             dialogOverlay.classList.add('show');
-            // Play alert sound if supported
             try {
                 const context = new (window.AudioContext || window.webkitAudioContext)();
                 const oscillator = context.createOscillator();
                 const gainNode = context.createGain();
                 oscillator.type = 'sine';
-                oscillator.frequency.setValueAtTime(440, context.currentTime); // A4
+                oscillator.frequency.setValueAtTime(440, context.currentTime);
                 gainNode.gain.setValueAtTime(0.1, context.currentTime);
                 oscillator.connect(gainNode);
                 gainNode.connect(context.destination);
                 oscillator.start();
-                oscillator.stop(context.currentTime + 0.8);
+                oscillator.stop(context.currentTime + 1.0);
             } catch (e) {
-                console.log("Audio not supported or blocked");
+                console.log("Audio not supported");
             }
         }
 
-        // Counter Logic
-        function updateCounts() {
-            const text = notepad.value;
-            charNum.textContent = text.length;
-
-            // Count lines/ideas
-            const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-            ideaCount.textContent = `Идей: ${lines.length}`;
-            ideaCount.className = lines.length > 0 ? 'badge badge-creative' : 'badge badge-primary';
-        }
-
-        // Copy Answers Logic
-        function copyAnswers() {
-            const text = notepad.value.trim();
-            if (!text) {
-                alert("Сначала напишите ответы в текстовое поле!");
-                return;
-            }
-
-            const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-            let formattedText = `ГБОУ Школа № 45 им. Мильграма\nТест Гилфорда: Необычное использование проводных наушников (5 мин)\n\nВсего идей: ${lines.length}\nСписок:\n`;
-            lines.forEach((line, index) => {
-                formattedText += `${index + 1}. ${line}\n`;
-            });
-
-            navigator.clipboard.writeText(formattedText).then(() => {
-                toast.classList.add('show');
-                setTimeout(() => {
-                    toast.classList.remove('show');
-                }, 2000);
-            }).catch(err => {
-                console.error("Copy failed: ", err);
-                alert("Не удалось скопировать ответы автоматически. Выделите текст руками и скопируйте.");
-            });
-        }
-
-        // Event Listeners
         startBtn.addEventListener('click', startTimer);
         pauseBtn.addEventListener('click', pauseTimer);
         resetBtn.addEventListener('click', resetTimer);
-        notepad.addEventListener('input', updateCounts);
-        copyBtn.addEventListener('click', copyAnswers);
         dialogClose.addEventListener('click', () => dialogOverlay.classList.remove('show'));
     </script>
 </body>
